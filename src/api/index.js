@@ -1,6 +1,6 @@
 import request from '../utils/request';
 
-export const fetchData = query => {
+export const getSeriesLatest = query => {
     return request({
         url: './table.json',
         method: 'get',
