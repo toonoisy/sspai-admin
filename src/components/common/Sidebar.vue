@@ -74,7 +74,13 @@ export default {
                 {
                     icon: 'el-icon-lx-copy',
                     index: 'series',
-                    title: 'Series'
+                    title: 'Series',
+                    subs: [
+                        {
+                            index: 'seriesLatest',
+                            title: '最新上架'
+                        }
+                    ]
                 },
                 {
                     icon: 'el-icon-lx-copy',

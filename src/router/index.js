@@ -30,9 +30,9 @@ export default new Router({
                     meta: { title: 'Matrix' }
                 },
                 {
-                    path: '/series',
-                    component: () => import(/* webpackChunkName: "series" */ '../components/page/Series.vue'),
-                    meta: { title: 'Series' }
+                    path: '/seriesLatest',
+                    component: () => import(/* webpackChunkName: "seriesLatest" */ '../components/page/Series/SeriesLatest.vue'),
+                    meta: { title: 'SeriesLatest' }
                 },
                 {
                     path: '/mall',

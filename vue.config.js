@@ -8,7 +8,14 @@ module.exports = {
                 target: 'http://localhost:3000/',
                 changeOrigin: true,
                 pathRewrite: {
-                    '/api': ''
+                    '^/api': ''
+                }
+            },
+            '/dev-api': {
+                target: 'http://182.92.128.115',
+                changeOrigin: true, 
+                pathRewrite: {
+                    '^/dev-api': ''
                 }
             }
         }

@@ -19,11 +19,7 @@ service.interceptors.request.use(
 
 service.interceptors.response.use(
     response => {
-        if (response.status === 200) {
-            return response.data;
-        } else {
-            Promise.reject();
-        }
+        return response.data;
     },
     error => {
         console.log(error);
