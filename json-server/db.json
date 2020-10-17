@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "seriesLatest": [
     {
       "id": 148,
@@ -158,6 +159,70 @@
       "banner": "http://182.92.128.115:8080/group1/M00/00/73/rBFUDF-IaieARxsuAAJpnLGHUdM101.png",
       "probation_total": "",
       "id": 151
+=======
+  "topicslist": [
+    {
+      "id": 176,
+      "banner": "https://cdn.sspai.com/topic/7de83fc1-e3f1-f16a-0195-ceb525f04198.jpg",
+      "intro": "iPhone X、iPhone 8、iPad Pro……苹果今年发布的新硬件真不少，它们用起来都怎么样？",
+      "title": "Apple 新硬件体验",
+      "favorite_count": 184,
+      "article_count": 14,
+      "favorited": false
+    },
+    {
+      "id": 270,
+      "banner": "https://cdn.sspai.com/topic/9b661fad-431c-57d6-db4f-e2c869266530.jpg",
+      "intro": "高效搜索文件、云剪贴板、防勒索……用好这些自带功能，轻松玩转 Win 10。",
+      "title": "真正好用的 Windows 10，从这里开始",
+      "favorite_count": 414,
+      "article_count": 24,
+      "favorited": false
+    },
+    {
+      "id": 282,
+      "banner": "https://cdn.sspai.com/topic/bbaee48f-7c5d-2e94-3f80-16f3705ba54c.jpg",
+      "intro": "Mac 是优秀设计的典范，是 GUI 设计史当中绕不过去的最重要的操作系统家族。",
+      "title": "Mac 视觉史：从系统界面了解 Mac 电脑历史",
+      "favorite_count": 125,
+      "article_count": 3,
+      "favorited": false
+    },
+    {
+      "id": 283,
+      "banner": "https://cdn.sspai.com/topic/7479db95-3dcc-6b2c-c356-541824a79117.jpg",
+      "intro": "艰深晦涩但终见柳暗花明的论述见解，随着作者的笔触才能看到的细节之美，层层叠叠令人拍案叫绝的情节设置，这些是书才能营造的奇妙世界。至少在目之所及的未来，书籍仍将是我们进步的阶梯。这个月我们不只谈论数字，也想与你分享文字之美。",
+      "title": "少数派读书月入围征文大赏",
+      "favorite_count": 58,
+      "article_count": 26,
+      "favorited": false
+    },
+    {
+      "id": 279,
+      "banner": "https://cdn.sspai.com/topic/0c34463b-6dd7-3196-e947-54509fb680d9.jpg",
+      "intro": "做一个体验出色的暗色模式，并不是「换个黑色界面」这么简单。",
+      "title": "用好暗色模式",
+      "favorite_count": 34,
+      "article_count": 12,
+      "favorited": false
+    },
+    {
+      "id": 274,
+      "banner": "https://cdn.sspai.com/topic/8802c18e-cd7c-0782-8a2c-a77b0b288706.jpg",
+      "intro": "如果你是一个在意「效率」的人，过去的一年里，你选择了哪些适合自己的效率工具，并借助它们提升自己的工作和学习效率？",
+      "title": "2019 年度征文 | 效率有心得",
+      "favorite_count": 142,
+      "article_count": 13,
+      "favorited": false
+    },
+    {
+      "author": "222",
+      "intro": "111111",
+      "title": "333333",
+      "banner": "https://zos.alipayobjects.com/rmsportal/jkjgkEfvpUPVyRjUImniVslZfWPnJuuZ.png",
+      "favorite_count": 77,
+      "id": 284
+>>>>>>> lihui
     }
   ]
 }

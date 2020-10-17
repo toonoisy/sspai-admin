@@ -7,7 +7,9 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
-import * as API from './api';
+//  引入所有api
+import * as API from './api'
+Vue.prototype.$API = API
 
 Vue.config.productionTip = false;
 Vue.prototype.$API = API;
