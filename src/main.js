@@ -7,12 +7,13 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
+//引入包含所有请求函数的API对象
+import * as API from './api';
 
+//全局注册
+Vue.prototype.$API = API;
 Vue.config.productionTip = false;
-Vue.use(ElementUI, {
-    size: 'small'
-});
-
+Vue.use(ElementUI);
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
     document.title = `${to.meta.title} | vue-manage-system`;
