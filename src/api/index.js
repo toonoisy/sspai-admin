@@ -50,3 +50,4 @@ export const del = (id) => {
         method: 'delete',
     });
 };
+export { default as order } from './setting/order';

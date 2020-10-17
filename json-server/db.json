@@ -223,5 +223,144 @@
             "favorite_count": 77,
             "id": 284
         }
+    ],
+    "user": [
+        {
+            "id": 4,
+            "name": "77777",
+            "banner": "https://cdn.sspai.com/article/a18035ca-e706-7840-67c6-3ffccd64f5f2.jpg",
+            "summary": "支持 1000+ 流媒体网站的视频下载工具",
+            "support_platforms": ["macOS"],
+            "price": 7900,
+            "cost_price": 7900,
+            "price_min": 7900,
+            "price_max": 7900
+        },
+        {
+            "id": 86,
+            "name": "大撒大撒",
+            "banner": "http://182.92.128.115:8080/group1/M00/00/74/rBFUDF-JUfOAGvXxAABj3ae1yfU379.jpg",
+            "summary": "为中文写作打造的 Markdown 编辑工具",
+            "support_platforms": ["macOS"],
+            "price": 6800,
+            "cost_price": 6800,
+            "price_min": 6800,
+            "price_max": 6800
+        },
+        {
+            "id": 13,
+            "name": "MWeb 3",
+            "banner": "https://cdn.sspai.com/article/c08e496a-c477-e7de-4bb6-43f9846f5b1d.jpg",
+            "summary": "全能型 Markdown 写作工具",
+            "support_platforms": ["macOS"],
+            "price": 12800,
+            "cost_price": 12800,
+            "price_min": 12800,
+            "price_max": 12800
+        },
+        {
+            "id": 48,
+            "name": "纯纯写作",
+            "banner": "https://cdn.sspai.com/article/7410f3e6-8487-3fdb-f1d8-567a541e7f95.jpg",
+            "summary": "也许是 Android 平台最好的写作工具",
+            "support_platforms": ["Android"],
+            "price": 10100,
+            "cost_price": 12800,
+            "price_min": 10100,
+            "price_max": 12800
+        },
+        {
+            "id": 51,
+            "name": "MacBooster",
+            "banner": "https://cdn.sspai.com/article/f5a287ae-cfa5-ef65-7332-3eb4b0777694.jpg",
+            "summary": "macOS 系统优化清理工具",
+            "support_platforms": ["macOS"],
+            "price": 5900,
+            "cost_price": 9900,
+            "price_min": 5900,
+            "price_max": 9900
+        },
+        {
+            "id": 62,
+            "name": "WPS Office",
+            "banner": "https://cdn.sspai.com/article/3cba0d48-e52c-f999-031d-270f2ce5ecb7.jpg",
+            "summary": "办公软件 Office PDF 转 Word",
+            "support_platforms": ["macOS", "Windows", "Linux"],
+            "price": 1500,
+            "cost_price": 1500,
+            "price_min": 1500,
+            "price_max": 1500
+        },
+        {
+            "id": 30,
+            "name": "Permute",
+            "banner": "https://cdn.sspai.com/article/6862419d-7166-157e-9d47-06cbccad0b7e.jpg",
+            "summary": "",
+            "support_platforms": ["macOS"],
+            "price": 6900,
+            "cost_price": 6900,
+            "price_min": 6900,
+            "price_max": 6900
+        },
+        {
+            "id": 25,
+            "name": "Microsoft 365",
+            "banner": "https://cdn.sspai.com/article/192bcfa7-1eb6-6400-ecc5-47848cebfd35.jpg",
+            "summary": "根据需要随时随地使用 Office",
+            "support_platforms": ["macOS", "Windows", "iOS", "Android"],
+            "price": 29900,
+            "cost_price": 39800,
+            "price_min": 29900,
+            "price_max": 39800
+        },
+        {
+            "id": 33,
+            "name": "Disk Drill Pro",
+            "banner": "https://cdn.sspai.com/article/524777d6-e7e3-02ce-5e13-e122a75f69a2.jpg",
+            "summary": "顶尖的 Mac 数据恢复软件",
+            "support_platforms": ["macOS"],
+            "price": 24900,
+            "cost_price": 60000,
+            "price_min": 24900,
+            "price_max": 60000
+        },
+        {
+            "id": 20,
+            "name": "Adguard 广告拦截器",
+            "banner": "https://cdn.sspai.com/article/55d94589-6a16-3dfe-e9e3-7e796b30f788.jpg",
+            "summary": "跨平台广告拦截及隐私保护工具",
+            "support_platforms": ["macOS", "Windows", "iOS", "Android"],
+            "price": 4000,
+            "cost_price": 4000,
+            "price_min": 4000,
+            "price_max": 4000
+        },
+        {
+            "id": 68,
+            "name": "赤友 NTFS for Mac 助手",
+            "banner": "https://cdn.sspai.com/article/8b7a6012-30c9-0a14-053a-fc7361aa84ee.jpg",
+            "summary": "macOS 移动硬盘 / U 盘读写工具",
+            "support_platforms": ["macOS"],
+            "price": 3600,
+            "cost_price": 3600,
+            "price_min": 3600,
+            "price_max": 3600
+        },
+        {
+            "id": 45,
+            "name": "Zine",
+            "banner": "https://cdn.sspai.com/article/91f11cb2-2198-7521-dda9-6f46fd56843f.jpg",
+            "summary": "发现创作的乐趣",
+            "support_platforms": ["iOS", "Android", "Web"],
+            "price": 1800,
+            "cost_price": 1800,
+            "price_min": 1800,
+            "price_max": 1800
+        },
+        {
+            "name": "等分固定",
+            "banner": "http://182.92.128.115:8080/group1/M00/00/74/rBFUDF-JUw-AZQ_jAAXplvoKMQg570.jpg",
+            "id": 87
+        }
     ]
 }

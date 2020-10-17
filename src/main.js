@@ -10,9 +10,11 @@ import 'babel-polyfill';
 //  引入所有api
 import * as API from './api'
 Vue.prototype.$API = API
+//引入包含所有请求函数的API对象
 
-Vue.config.productionTip = false;
+//全局注册
 Vue.prototype.$API = API;
+Vue.config.productionTip = false;
 Vue.use(ElementUI, {
     size: 'small'
 });
