@@ -8,12 +8,23 @@ import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
 import * as API from './api';
+import VueI18n from 'vue-i18n';
 
 Vue.config.productionTip = false;
 Vue.prototype.$API = API;
 Vue.use(ElementUI, {
     size: 'small'
 });
+Vue.use(VueI18n);
+
+
+const i18n = new VueI18n({
+    locale: 'zh-CN',    // 语言标识
+    messages: {
+      'zh-CN': require('@/components/common/lang/zh'),   // 中文语言包
+      'en-US': require('@/components/common/lang/en')    // 英文语言包
+    }
+})
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
@@ -38,5 +49,6 @@ router.beforeEach((to, from, next) => {
 
 new Vue({
     router,
+    i18n,
     render: h => h(App)
 }).$mount('#app');
