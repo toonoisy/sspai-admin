@@ -7,10 +7,8 @@ import 'element-ui/lib/theme-chalk/index.css'; // 默认主题
 import './assets/css/icon.css';
 import './components/common/directives';
 import 'babel-polyfill';
-//  引入所有api
-import * as API from './api'
-Vue.prototype.$API = API
-//引入包含所有请求函数的API对象
+import * as API from './api';
+import VueI18n from 'vue-i18n';
 
 //全局注册
 Vue.prototype.$API = API;
@@ -18,6 +16,16 @@ Vue.config.productionTip = false;
 Vue.use(ElementUI, {
     size: 'small'
 });
+Vue.use(VueI18n);
+
+
+const i18n = new VueI18n({
+    locale: 'zh-CN',    // 语言标识
+    messages: {
+      'zh-CN': require('@/components/common/lang/zh'),   // 中文语言包
+      'en-US': require('@/components/common/lang/en')    // 英文语言包
+    }
+})
 
 //使用钩子函数对路由进行权限跳转
 router.beforeEach((to, from, next) => {
@@ -42,5 +50,6 @@ router.beforeEach((to, from, next) => {
 
 new Vue({
     router,
+    i18n,
     render: h => h(App)
 }).$mount('#app');

@@ -13,6 +13,7 @@
     "element-ui": "^2.11.0",
     "less": "^3.12.2",
     "less-loader": "^7.0.2",
+    "i18n": "^0.13.2",
     "mavon-editor": "^2.6.17",
     "vue": "^2.6.10",
     "vue-cropperjs": "^3.0.0",
