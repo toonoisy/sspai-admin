@@ -53,9 +53,10 @@ export default {
             })
                 .then(() => {
                     let locale = this.$i18n.locale;
-                    console.log('1', locale);
+                    // console.log('1', locale);
                     locale === 'zh-CN' ? (this.$i18n.locale = 'en-US') : (this.$i18n.locale = 'zh-CN');
-                    console.log('2', this.$i18n.locale);
+                    // console.log('2', this.$i18n.locale);
+                    localStorage.setItem('locale', this.$i18n.locale);
                 })
                 .catch(() => {
                     this.$message({
