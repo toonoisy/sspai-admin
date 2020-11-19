@@ -1,14 +1,14 @@
 <template>
     <el-card>
-        <el-form label-position="right" label-width="100px" :v-model="itemInfo">
-            <el-form-item label="标题">
+        <el-form label-position="right" label-width="100px" :model="itemInfo" :rules="formRules" ref="ruleForm">
+            <el-form-item label="标题" prop="title">
                 <el-input v-model="itemInfo.title"></el-input>
             </el-form-item>
-            <el-form-item label="描述">
-                <el-input type="textarea" rows="4" v-model="itemInfo.description"></el-input>
+            <el-form-item label="描述" prop="description">
+                <el-input type="textarea" rows="4" maxlength='100' v-model="itemInfo.description"></el-input>
             </el-form-item>
-            <el-form-item label="价格(元)">
-                <el-input type="number" v-model="itemInfo.price"></el-input>
+            <el-form-item label="价格(元)" prop="price">
+                <el-input type="number" v-model.number="itemInfo.price"></el-input>
             </el-form-item>
             <el-form-item label="免费试读(章)">
                 <el-input type="number" v-model="itemInfo.probation_total"></el-input>
@@ -27,7 +27,10 @@
                 </el-upload>
             </el-form-item>
             <el-form-item>
-                <el-button type="primary" @click="save" :disabled='!itemInfo.title || !itemInfo.description || !itemInfo.price'>保存</el-button>
+                <el-button type="primary" @click="save">保存</el-button>
+                <!-- <el-button type="primary" @click="save" :disabled="!itemInfo.title || !itemInfo.description || !itemInfo.price"
+                    >保存</el-button
+                > -->
                 <el-button @click="cancel">取消</el-button>
             </el-form-item>
         </el-form>
@@ -38,6 +41,11 @@
 export default {
     name: 'EditForm',
     data() {
+        let validPrice = (rule, value, callback) => {
+            if (value <= 0) {
+                callback(new Error('有效价格必须大于0'));
+            }
+        };
         return {
             // inputPrice: '',
             imageUrl: '',
@@ -47,13 +55,27 @@ export default {
                 price: '',
                 banner: '',
                 probation_total: ''
+            },
+            formRules: {
+                title: [
+                    { required: true, message: '请输入标题', trigger: 'change' },
+                    { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'change' }
+                ],
+                description: [
+                    { required: true, message: '请输入描述', trigger: 'change' },
+                    { min: 1, max: 100, message: '长度在 1 到 100 个字符', trigger: 'change' }
+                ],
+                price: [
+                    { required: true, type: 'number', message: '请输入价格', trigger: 'change' },
+                    { validator: validPrice, trigger: 'change' }
+                ]
             }
         };
     },
     methods: {
         handleAvatarSuccess(res, file) {
             this.imageUrl = URL.createObjectURL(file.raw);
-            this.itemInfo.banner = res.data
+            this.itemInfo.banner = res.data;
         },
         beforeAvatarUpload(file) {
             const isPNG = file.type === 'image/png';
@@ -67,22 +89,27 @@ export default {
             return isPNG && isLt2M;
         },
         getInitData(item) {
-          this.getItemInfoById(item.id)
+            //   this.getItemInfoById(item.id)
+            this.itemInfo = { ...item, price: item.price / 100 }; // 浅拷贝一个新对象并对price做处理
         },
-        async getItemInfoById(id) {
-          let res = await this.$API.series.reqLatestItem(id)
-          console.log(res);
-          this.itemInfo = {
-            ...res,
-            // 为了显示符合要求
-            price: res.price / 100
-          }
-        },
+        // async getItemInfoById(id) {
+        //   let res = await this.$API.series.reqLatestItem(id)
+        //   console.log(res);
+        //   this.itemInfo = {
+        //     ...res,
+        //     // 为了显示符合要求
+        //     price: res.price / 100
+        //   }
+        // },
         async save() {
-            const res = await this.$API.series.saveLatestItem({...this.itemInfo, price: this.itemInfo.price * 100});  // 为了传值符合要求
-            this.$emit('update:visible', false);
-            this.$emit('saveSuccess');
-            this.resetData();
+            this.$refs.ruleForm.validate(async valid => {
+                if (valid) {
+                    const res = await this.$API.series.saveLatestItem({ ...this.itemInfo, price: this.itemInfo.price * 100 }); // 为了传值符合要求
+                    this.$emit('update:visible', false);
+                    this.$emit('saveSuccess');
+                    this.resetData();
+                }
+            });
         },
         cancel() {
             this.$emit('update:visible', false);
