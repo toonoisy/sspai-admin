@@ -1,17 +1,17 @@
 <template>
     <el-card>
-        <el-form label-position="right" label-width="100px" :model="itemInfo" :rules="formRules" ref="ruleForm">
+        <el-form label-position="right" label-width="100px" :model="itemInfo" :rules="rules" ref="ruleForm">
             <el-form-item label="标题" prop="title">
                 <el-input v-model="itemInfo.title"></el-input>
             </el-form-item>
             <el-form-item label="描述" prop="description">
-                <el-input type="textarea" rows="4" maxlength='100' v-model="itemInfo.description"></el-input>
+                <el-input type="textarea" rows="4" maxlength="100" v-model="itemInfo.description"></el-input>
             </el-form-item>
             <el-form-item label="价格(元)" prop="price">
                 <el-input type="number" v-model.number="itemInfo.price"></el-input>
             </el-form-item>
             <el-form-item label="免费试读(章)">
-                <el-input type="number" v-model="itemInfo.probation_total"></el-input>
+                <el-input type="number" v-model.number="itemInfo.probation_total"></el-input>
             </el-form-item>
             <el-form-item label="封面">
                 <el-upload
@@ -44,6 +44,8 @@ export default {
         let validPrice = (rule, value, callback) => {
             if (value <= 0) {
                 callback(new Error('有效价格必须大于0'));
+            } else {
+                callback(); // 自定义校验 callback 必须被调用
             }
         };
         return {
@@ -56,7 +58,7 @@ export default {
                 banner: '',
                 probation_total: ''
             },
-            formRules: {
+            rules: {
                 title: [
                     { required: true, message: '请输入标题', trigger: 'change' },
                     { min: 1, max: 20, message: '长度在 1 到 20 个字符', trigger: 'change' }
@@ -67,6 +69,7 @@ export default {
                 ],
                 price: [
                     { required: true, type: 'number', message: '请输入价格', trigger: 'change' },
+                    { required: true },
                     { validator: validPrice, trigger: 'change' }
                 ]
             }
@@ -101,18 +104,21 @@ export default {
         //     price: res.price / 100
         //   }
         // },
-        async save() {
+        save() {
             this.$refs.ruleForm.validate(async valid => {
                 if (valid) {
                     const res = await this.$API.series.saveLatestItem({ ...this.itemInfo, price: this.itemInfo.price * 100 }); // 为了传值符合要求
                     this.$emit('update:visible', false);
                     this.$emit('saveSuccess');
+                    // 对整个验证表单进行重置，将所有字段值重置为初始值并移除校验结果
+                    this.$refs.ruleForm.resetFields();
                     this.resetData();
                 }
             });
         },
         cancel() {
             this.$emit('update:visible', false);
+            this.$refs.ruleForm.resetFields();
             this.resetData();
         },
         resetData() {
