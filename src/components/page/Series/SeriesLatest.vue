@@ -3,12 +3,18 @@
         <div v-show="!editFormVisible">
             <el-button type="primary" icon="el-icon-plus" @click="add">{{ $t('add') }}</el-button>
             <el-button type="info" @click="toggleLang">{{ $t('lang') }}</el-button>
-            <el-table :data="latestList" border style="width: 100%; margin: 10px 0">
+            <el-table :data="latestList" border style="width: 100%; margin: 10px 0" row-key="id">
                 <el-table-column fixed type="index" :label="$t('no')" width="100" align="center"> </el-table-column>
                 <el-table-column prop="banner" :label="$t('cover')" align="center">
                     <template slot-scope="{ row }">
                         <img :src="row.banner" alt="" style="width: 100px" />
                         <!-- <img :src="`https://cdn.sspai.com/${row.banner}`" alt="" style="width: 100px" /> -->
+                    </template>
+                </el-table-column>
+                <el-table-column label="排序" width="50px" align="center">
+                    <template slot-scope="{ $index, row }">
+                        <i class="el-icon-top" @click="moveUp($index, row)" v-if="$index !== 0"></i>
+                        <i class="el-icon-bottom" @click="moveDown($index, row)" v-if="$index !== latestList.length - 1"></i>
                     </template>
                 </el-table-column>
                 <el-table-column prop="title" :label="$t('title')"> </el-table-column>
@@ -45,6 +51,22 @@ export default {
         this.getLatestList();
     },
     methods: {
+        moveUp(index, row) {
+            console.log('moveUp', index, row);
+            let temp = this.latestList[index - 1]; // 目标行的上一行
+            this.latestList.splice(index - 1, 1); // 截取目标行的上一行
+            this.latestList.splice(index, 0, temp); // 置于目标行之下
+            // this.$set(this.latestList, index - 1, this.latestList[index]);
+            // this.$set(this.latestList, index, temp);
+        },
+        moveDown(index, row) {
+            console.log('moveDown', index, row);
+            let temp = this.latestList[index + 1]; // 目标行的下一行
+            this.latestList.splice(index + 1, 1); // 截取目标行的下一行
+            this.latestList.splice(index, 0, temp); // 置于目标行之下
+            // this.$set(this.latestList, index + 1, this.latestList[index]);
+            // this.$set(this.latestList, index, temp);
+        },
         toggleLang() {
             this.$confirm(this.$t('tip'), this.$t('warning'), {
                 confirmButtonText: this.$t('confirm'),
@@ -62,7 +84,7 @@ export default {
                     this.$message({
                         type: 'info',
                         message: this.$t('msg')
-                    })
+                    });
                 });
         },
         async getLatestList() {
@@ -108,4 +130,12 @@ export default {
 };
 </script>
 
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+.el-icon-top:before,
+.el-icon-bottom:before {
+    color: #409eff;
+    font-weight: 700;
+    font-size: 16px;
+    cursor: pointer;
+}
+</style>
