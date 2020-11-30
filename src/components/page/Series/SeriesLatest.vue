@@ -3,7 +3,7 @@
         <div v-show="!editFormVisible">
             <el-button type="primary" icon="el-icon-plus" @click="add">{{ $t('add') }}</el-button>
             <el-button type="info" @click="toggleLang">{{ $t('lang') }}</el-button>
-            <el-table :data="latestList" border style="width: 100%; margin: 10px 0" row-key="id">
+            <el-table :data="latestList" border style="width: 100%; margin: 10px 0" row-key="id" :header-cell-style='headerCellStyle'>
                 <el-table-column fixed type="index" :label="$t('no')" width="100" align="center"> </el-table-column>
                 <el-table-column prop="banner" :label="$t('cover')" align="center">
                     <template slot-scope="{ row }">
@@ -11,11 +11,14 @@
                         <!-- <img :src="`https://cdn.sspai.com/${row.banner}`" alt="" style="width: 100px" /> -->
                     </template>
                 </el-table-column>
-                <el-table-column label="排序" width="50px" align="center">
-                    <template slot-scope="{ $index, row }">
-                        <i class="el-icon-top" @click="moveUp($index, row)" v-if="$index !== 0"></i>
-                        <i class="el-icon-bottom" @click="moveDown($index, row)" v-if="$index !== latestList.length - 1"></i>
-                    </template>
+                <el-table-column label="排序" align="center">
+                    <el-table-column prop="id" width="50" align="center"> </el-table-column>
+                    <el-table-column width="50" align="center">
+                        <template slot-scope="{ $index, row }">
+                            <i class="el-icon-top" @click="moveUp($index, row)" v-if="$index !== 0"></i>
+                            <i class="el-icon-bottom" @click="moveDown($index, row)" v-if="$index !== latestList.length - 1"></i>
+                        </template>
+                    </el-table-column>
                 </el-table-column>
                 <el-table-column prop="title" :label="$t('title')"> </el-table-column>
                 <el-table-column prop="description" :label="$t('description')" width="350"> </el-table-column>
@@ -51,6 +54,11 @@ export default {
         this.getLatestList();
     },
     methods: {
+        headerCellStyle({row, column, rowIndex, columnIndex}) {
+            if (rowIndex === 1) {
+                return {display: 'none'}
+            }
+        },
         moveUp(index, row) {
             console.log('moveUp', index, row);
             let temp = this.latestList[index - 1]; // 目标行的上一行
