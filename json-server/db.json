@@ -145,7 +145,7 @@
     },
     {
       "title": "puke-rainbow",
-      "description": "pukingggg",
+      "description": "除了这些基本设置外，还有一些属性可以让使用者更好的定制自己的效果：transition 属性可以定制显隐的动画效果，默认为fade-in-linear。 如果需要关闭 tooltip 功能，disabled 属性可以满足这个需求，它接受一个Boolean，设置为true即可。事实上，这是基于 Vue-popper 的扩展，你可以自定义任意 Vue-popper 中允许定义的字段。 当然 Tooltip 组件实际上十分强大，文末的API文档会做一一说明。",
       "price": "111111",
       "banner": "http://182.92.128.115:8080/group1/M00/00/73/rBFUDF-IaMKAYSmmAAEmTXit1CI353.png",
       "probation_total": "1",
